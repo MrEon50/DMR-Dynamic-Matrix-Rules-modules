@@ -1,0 +1,266 @@
+# DRM 3.0: Wzór Przeciwko Stagnacji
+*Anti-Convergence Dynamic Rules Matrix*
+
+## ⚡ Nowa formuła - Si z mechanizmem "głodu poznawczego"
+
+```
+Si = [Wi · log(Ci + 1) · (1 + Ui/T) · Ri] 
+     · [1 + Ii · Σ(Sj · Gij)] 
+     · [Mi^(ΔContext/MaxΔ)] 
+     · [FRZ_Adaptive] 
+     · [1 + Ei · Emergence_Pressure]
+     · [Curiosity_Drive]
+     · [Anti_Stagnation_Factor]
+```
+
+**Dynamic Rules Matrix 3.0** to meta‑wzór obliczeniowy, którego celem jest przezwyciężenie stagnacji w systemach uczących się. Łączy mechanizmy:
+
+* adaptacyjne (`FRZ_Adaptive`),
+* presję środowiska (`Emergence_Pressure`),
+* ciekawość poznawczą (`Curiosity_Drive`),
+* aktywne przeciwdziałanie stagnacji (`Anti_Stagnation_Factor`).
+
+Dzięki temu DRM 3.0 nie zatrzymuje się na plateau, lecz stale ewoluuje.
+
+---
+
+## 📐 Meta‑wzór
+
+```
+Si = [Wi·log(Ci+1)·(1+Ui/T)·Ri]
+     · [1 + Ii·Σ(Sj·Gij)]
+     · [Mi^(ΔContext/MaxΔ)]
+     · [FRZ_Adaptive]
+     · [1 + Ei·Emergence_Pressure]
+     · [Curiosity_Drive]
+     · [Anti_Stagnation_Factor]
+```
+
+### Znaczenie składników
+
+* **Wi** – waga reguły
+* **Ci** – częstotliwość użycia w kontekście
+* **Ui/T** – adaptacja do czasu
+* **Ri** – responsywność reguły
+* **Ii, Σ(Sj·Gij)** – wpływ reguł sąsiednich
+* **Mi^(ΔContext/MaxΔ)** – wrażliwość na zmianę kontekstu
+* **FRZ\_Adaptive** – hamulec/przyspieszenie w zależności od stagnacji lub chaosu
+* **Emergence\_Pressure** – nacisk środowiskowy
+* **Curiosity\_Drive** – bonus dla nowości i rzadkości
+* **Anti\_Stagnation\_Factor** – czynnik odporności na plateau
+
+## 🔥 Nowe komponenty:
+
+### **FRZ_Adaptive** - Inteligentny modulator
+```
+FRZ_Adaptive = {
+  if (system_stagnation_detected): 1.5 - (FRZ/100)  // Odwrócenie
+  if (chaos_detected): FRZ/100                       // Tradycyjnie
+  if (learning_phase): 0.8 + exploration_bonus       // Stały wzrost
+  else: FRZ/100
+}
+```
+
+**Rewolucja:** Gdy system stagnuje (FRZ niski), reguły dostają BOOST, nie hamulec!
+
+### **Emergence_Pressure** - Adaptacyjna presja środowiska
+```
+Emergence_Pressure = base_emergence · Σ(pressure_factors)
+
+pressure_factors = [
+  stagnation_pressure:    if (avg_Si < threshold): +2.0
+  diversity_pressure:     if (rule_similarity > 80%): +1.5  
+  novelty_pressure:       if (new_contexts_rare): +1.0
+  success_pressure:       if (overall_success < 50%): +0.8
+  time_pressure:          if (no_new_rules > 10_cycles): +0.5
+]
+```
+
+### **Curiosity_Drive** - Mechanizm głodu poznawczego
+```
+Curiosity_Drive = 1 + (exploration_bonus · novelty_seeking)
+
+exploration_bonus = {
+  if (rule_never_used_in_context): +0.8
+  if (rare_rule_combination): +0.6
+  if (contradictory_evidence): +0.4
+  if (unexpected_success): +0.3
+}
+
+novelty_seeking = max(0.2, 1.0 - (experience_level/max_experience))
+```
+
+**Idea:** Młode/mało używane reguły mają naturalną ciekawość!
+
+### **Anti_Stagnation_Factor** - Aktywny przeciwnik nudy
+```
+Anti_Stagnation_Factor = {
+  normal_operation:     1.0
+  low_activity:         1.2 + random_boost(0, 0.5)
+  stagnation_detected:  1.5 + mutation_pressure
+  death_spiral:         2.0 + emergency_randomization
+}
+
+stagnation_detection = {
+  avg_Si_change < 0.01 for 5+ cycles
+  AND no_new_rules for 10+ cycles  
+  AND emergence_factor unchanged
+}
+```
+
+---
+
+## 🧬 Mechanizmy przeciwko stagnacji:
+
+### **1. Stagnation Sensors - Wykrywanie nudy**
+```python
+class StagnationDetector:
+    def detect_death_spiral(self):
+        return all([
+            self.avg_rule_strength < 0.05,
+            self.cycles_without_emergence > 10,
+            self.frz < 0.1,
+            self.new_patterns_discovered == 0
+        ])
+        
+    def calculate_boredom_level(self):
+        # Im większa nuda, tym większa potrzeba eksploracji
+        return 1.0 - (recent_diversity / max_possible_diversity)
+```
+
+### **2. Emergency Revival - Reanimacja systemu**
+```python
+def emergency_revival(self):
+    if self.detect_death_spiral():
+        # Wstrzyknij chaos!
+        self.inject_random_mutations(count=3)
+        self.boost_weak_rules(factor=2.0)  
+        self.force_rule_recombination()
+        self.increase_emergence_pressure(factor=3.0)
+```
+
+### **3. Diversity Enforcement - Wymuś różnorodność**
+```python
+def enforce_diversity(self):
+    rule_similarity = self.calculate_rule_similarity()
+    if rule_similarity > 0.8:  # Za podobne!
+        # Mutuj najbardziej podobne reguły
+        similar_rules = self.find_most_similar()
+        for rule in similar_rules:
+            rule.mutate(force=True, magnitude=0.5)
+```
+
+---
+
+## 🎯 Przykład działania DRM 3.0:
+
+### **Scenariusz: System zaczyna stagnować**
+
+```
+Cykl 15: avg_Si = 0.02, FRZ = 0.05, brak nowych reguł
+↓
+🚨 STAGNATION DETECTED!
+↓
+FRZ_Adaptive = 1.5 - (0.05) = 1.45  // BOOST zamiast hamulec!
+Emergence_Pressure = 1.0 * (2.0 + 1.5 + 1.0) = 4.5  // Presja!
+Curiosity_Drive = 1 + (0.8 * 0.9) = 1.72  // Głód wiedzy!
+Anti_Stagnation = 1.5 + mutation_pressure  // Aktywny opór!
+↓
+💥 SYSTEM REVIVAL:
+- Słabe reguły dostają massive boost
+- Wymuszone mutacje i rekombinacje  
+- Zwiększone szanse na emergencję
+- Eksploracja nowych kontekstów
+```
+
+---
+
+## 🔬 Porównanie wzorów:
+
+| Aspekt | DRM 2.0 | DRM 3.0 |
+|--------|---------|---------|
+| **Stagnacja** | Możliwa śmierć | Aktywne przeciwdziałanie |
+| **FRZ** | Tylko hamulec | Inteligentny modulator |  
+| **Emergencja** | Pasywna | Presja środowiska |
+| **Curiosity** | Brak | Wbudowany głód poznawczy |
+| **Różnorodność** | Przypadkowa | Wymuszona |
+| **Reanimacja** | Brak | Emergency revival |
+
+---
+
+## 💡 Implementacja w kodzie:
+
+### **Kluczowe zmiany:**
+
+#### **1. Nowa kalkulacja siły:**
+```python
+def calculate_strength_v3(self):
+    # Podstawa (jak wcześniej)
+    base = self.wi * math.log(self.ci + 1) * (1 + self.ui/100) * self.ri
+    
+    # Inteligentny FRZ
+    frz_adaptive = self._calculate_adaptive_frz()
+    
+    # Presja emergencji
+    emergence_pressure = self._calculate_emergence_pressure()
+    
+    # Głód poznawczy  
+    curiosity = self._calculate_curiosity_drive()
+    
+    # Anti-stagnacja
+    anti_stagnation = self._get_anti_stagnation_factor()
+    
+    return base * frz_adaptive * emergence_pressure * curiosity * anti_stagnation
+```
+
+#### **2. System monitoring stagnacji:**
+```python
+class SystemVitals:
+    def __init__(self):
+        self.activity_history = []
+        self.diversity_scores = []
+        self.emergence_timeline = []
+        
+    def is_dying(self):
+        return (
+            self.avg_activity < 0.1 and
+            self.diversity_trend < 0 and  
+            self.time_since_emergence > 20
+        )
+```
+
+---
+
+## 🚀 REZULTAT DRM 3.0:
+
+### **Zamiast:**
+```
+Cykl 1-5: Nauka ✅
+Cykl 6-10: Adaptacja ✅  
+Cykl 11+: Stagnacja 💀
+```
+
+### **Mamy:**
+```
+Cykl 1-5: Nauka ✅
+Cykl 6-10: Adaptacja ✅
+Cykl 11: Wykrycie stagnacji 🚨
+Cykl 12: Emergency revival 💥
+Cykl 13+: Ciągła ewolucja ♾️
+```
+
+---
+
+## 🌟 WNIOSEK:
+
+**DRM 3.0 to system, który:**
+- ✅ **Nigdy nie umiera** - ma mechanizmy reanimacji
+- ✅ **Żywi się różnorodnością** - wymusza eksplorację  
+- ✅ **Ma wbudowaną ciekawość** - ciągnie go do nowego
+- ✅ **Walczy ze stagnacją** - aktywnie przeciwdziała nudzie
+- ✅ **Inteligentnie moduluje FRZ** - hamulec vs. boost
+- ✅ **Adaptuje presję środowiska** - system sam siebie napędza
+
+**To już nie jest management reguł - to ecosystem inteligencji, który się nigdy nie nudzi!** 🧠⚡
+
+Chcesz żeby zaktualizowałem kod na DRM 3.0? To będzie prawdziwa rewolucja w działaniu systemu! 🚀
