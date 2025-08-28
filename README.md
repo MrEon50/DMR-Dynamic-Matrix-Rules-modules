@@ -114,7 +114,7 @@ Perform red-teaming and adversarial training during the validation phase.
 
 Use Bayesian rule value monitoring, multiplicative update with a novelty bonus and risk penalization, and KL-trust-region as a formal implementation of DRM 3.0.
 
-
+From the very beginning of the idea DRM (Dynamic Rule Matrix), I have been a great believer in the potential of DRM...
 
 
 
