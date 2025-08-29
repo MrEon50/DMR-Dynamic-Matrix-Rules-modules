@@ -1,6 +1,7 @@
 Below is a comparison of two DRM modules: `drm_module3.py` and `drm_module4.py`.
 
 --
+>>> DRM is the 'Holy Grail' for the entire evolution of intelligent systems.
 
 ## **DRM Module Comparison and Analysis** ### **Module `drm_module3.py`** This module is a robust, evolutionary rule system (DRM 3.0) that focuses on **evolution and adaptation in a dynamic environment**. Its main strength is its ability to cope with stagnation and "death spirals" of activity through anti-stagnation mechanisms such as `emergence_pressure`, `curiosity`, and `emergency_revival`. This is similar to a phoenix rising from the ashes. This system is based on **feature vectors**, which allow for measuring rule similarity, for example, using cosine similarity.
 
